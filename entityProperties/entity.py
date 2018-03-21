@@ -1,21 +1,17 @@
 #!/usr/bin/python3
 
-from properties import *
+from properties import BoolProperty
 
 class Entity(object):
-	targetable = Targetable()
-	depletable = Depletable()
-	permanent = Permanent()
-	damageable = Damageable()
-	destructible = Destructible()
-	exilable = Exilable()
-	controllable = Controllable()
-	attachable = Attachable()
-	exhaustible = Exhaustible()
+
+	targetable = BoolProperty()
+	depletable = BoolProperty()
+	permanent = BoolProperty()
+	damageable = BoolProperty()
+	destructible = BoolProperty()
+	exilable = BoolProperty()
+	controllable = BoolProperty()
+	attachable = BoolProperty()
+	exhaustible = BoolProperty()
 
 
-e = Entity()
-
-print(e.exilable)
-
-print(e.targetable)	
