@@ -1,0 +1,13 @@
+1. Player object
+	1.a give owner and controller to Entity
+
+2. game objects
+
+3. timings
+	3.a turn manager
+
+4. effects
+
+5. card parser + keyword language
+
+6. card-cost algorithm
