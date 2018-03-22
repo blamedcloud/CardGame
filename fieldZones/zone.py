@@ -21,7 +21,11 @@ class Zone(Entity):
 		self.cardsInZone.append(card)
 
 	def removeFrom(self, card):
-		self.cardinZone.remove(card)
+		self.cardsInZone.remove(card)
+
+	def sendTo(self, card, zone):
+		self.cardsInZone.remove(card)
+		zone.addTo(card)
 
 	def __contains__(self, card):
 		return card in self.cardsInZone
