@@ -24,6 +24,6 @@ class Deck(Zone):
 		self.cardsInZone.append(card)
 
 	def putOnBottom(self, card):
-		self.insert(0,card)
+		self.cardsInZone.insert(0,card)
 
 
