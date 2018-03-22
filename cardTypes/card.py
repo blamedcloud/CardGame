@@ -1,10 +1,12 @@
+#!/usr/bin/python3
 
 from entityProperties.entity import Entity
+from enum import Enum
 
-class Card(Entity);
+class Card(Entity):
     
 	def __init__(self, colors, effect, rarity):
-		super().__init__(self)
+		super().__init__()
 		self.speed = 0
 		self.effect = effect
 		self.colors = colors
@@ -12,7 +14,7 @@ class Card(Entity);
 
 		self.targetable = True
 		self.exilable = True
-		self.controllable = True
+		self.stealable = True
 
 
 class Rarity(Enum):

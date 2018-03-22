@@ -1,11 +1,12 @@
+#!/usr/bin/python3
 
 from entityProperties.colors import Colors
-from card import Card
+from cardTypes.card import * 
 
 class Artifact(Card):
 
 	def __init__(self, effect, rarity, speed = 0):
-		super().__init__(self,[Colors['colorless']], effect, rarity)
+		super().__init__([Colors['colorless']], effect, rarity)
 		self.speed = speed
 
 		self.depletable = True

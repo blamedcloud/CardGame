@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from properties import BoolProperty
+from entityProperties.properties import BoolProperty
 
 class Entity(object):
 
@@ -10,8 +10,9 @@ class Entity(object):
 	damageable = BoolProperty()
 	destructible = BoolProperty()
 	exilable = BoolProperty()
-	controllable = BoolProperty()
+	stealable = BoolProperty()
 	attachable = BoolProperty()
 	exhaustible = BoolProperty()
 
-
+	def __init__(self):
+		pass

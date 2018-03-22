@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 class BoolProperty(object):
 
 	def __init__(self, default=False):
