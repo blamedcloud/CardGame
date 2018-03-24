@@ -14,12 +14,12 @@ class Exile(Zone):
 
 	def removeFrom(self, card):
 		if self.forever:
-			raise Exception("One does not simply return from exile.")
+			raise InvalidZoneTransition("One does not simply return from exile.", card, self)
 		else:
 			super().removeFrom(card)
 
 	def sendTo(self, card, zone):
 		if self.forever:
-			raise Exception("One does not simply return from exile.")
+			raise InvalidZoneTransition("One does not simply return from exile.", card, self)
 		else:
 			super().sendTo(card, zone)

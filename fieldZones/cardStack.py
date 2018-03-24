@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from exceptions.illegalAction import *
+
 from fieldZones.zone import Zone
 
 class CardStack(Zone):
@@ -35,7 +37,7 @@ class CardStack(Zone):
 
 	def addTo(self, card):
 		if not self.checkValidAddition(card):
-			raise Exception("Card can't go on stack at this speed!")
+			raise InvalidZoneTransition("Card can't go on stack at this speed!", card, self)
 		else:
 			super().addTo(card)
 			self.updateSpeed()
