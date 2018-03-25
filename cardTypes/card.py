@@ -5,9 +5,9 @@ from enum import Enum
 
 class Card(Entity):
     
-	def __init__(self, colors, effect, rarity):
+	def __init__(self, colors, effect, rarity, speed):
 		super().__init__()
-		self.speed = 0
+		self.speed = speed
 		self.effect = effect
 		self.colors = colors
 		self.rarity = rarity

@@ -5,6 +5,5 @@ from cardTypes.card import *
 class Spell(Card):
 
 	def __init__(self, colors, effect, rarity, speed = 0):
-		super().__init__(colors, effect, rarity)
-		self.speed = speed
+		super().__init__(colors, effect, rarity, speed)
 
