@@ -1,0 +1,69 @@
+
+(* precursors *)
+nonzero_digit = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+digit = "0" | nonzero_digit ;
+positive_int = nonzero_digit , { digit } ;
+nonnegative_int = "0" | positive_int
+nonzero_int = positive_int | "-" , positive_int
+integer = "0" | nonzero_int
+
+
+effect = [ additional_cost ] , { ability } ;
+
+ability = keyword | ability_expr | activated_ability ;
+
+keyword = "Hexproof"
+        | "Shroud"
+        | ... ; (* TODO: add more keywords *)
+
+activated_ability = cost , "=>" , ability_expr ;
+
+ability_expr = [ timing_expr ] , action_expr ; (* more types of ability_exprs? *)
+
+timing_expr = 
+
+action_expr = create_token_expr
+            | search_expr
+            | shuffle_expr
+            | draw_expr
+            | sacrifice_expr
+            | destroy_expr
+            | look_expr
+            | counter_expr
+            | reveal_expr
+            | exhaust_expr
+            | unexhaust_expr
+            | deplete_expr
+            | exile_expr
+            | swap_expr
+            | damage_expr
+            | steal_expr
+            | heal_expr
+            | send_expr 
+
+additional_cost = "AdditionalCost:" , non_mana_cost ;
+
+non_mana_cost = single_non_mana_cost , { "," , single_non_mana_cost } ;
+
+cost = mana_cost , { "," , single_non_mana_cost } ;
+
+single_cost = single_non_mana_cost | mana_cost ;
+
+single_non_mana_cost = "exhaust"
+                     | "deplete", positive_int
+                     | sacrifice_cost
+                     | exile_cost
+                     | discard_cost
+                     | life_cost ;
+
+mana_cost = 
+
+sacrifice_cost = "Sacrifice(" ,
+               ( "Creature" | "Permanent" | "Mana" ) , ")" ;
+
+exile_cost = "Exile(" ,
+           ( "Creature" | "Permanent" | "Mana" | "HandCard" ) , ")" ;
+
+discard_cost = "Discard" , positive_int ;
+
+life_cost = "PayLife", positive_int ;
