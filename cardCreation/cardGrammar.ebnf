@@ -10,7 +10,7 @@ integer = "0" | nonzero_int
 
 effect = [ additional_cost ] , { ability } ;
 
-ability = keyword | ability_expr | activated_ability ;
+ability = keyword | activated_ability | ability_expr ;
 
 keyword = "Hexproof"
         | "Shroud"
@@ -41,7 +41,7 @@ action_expr = create_token_expr
             | heal_expr
             | send_expr 
 
-additional_cost = "AdditionalCost:" , non_mana_cost ;
+additional_cost = "AdditionalCost" , ":" , non_mana_cost ;
 
 non_mana_cost = single_non_mana_cost , { "," , single_non_mana_cost } ;
 
@@ -58,12 +58,12 @@ single_non_mana_cost = "exhaust"
 
 mana_cost = 
 
-sacrifice_cost = "Sacrifice(" ,
+sacrifice_cost = "Sacrifice" , "(" ,
                ( "Creature" | "Permanent" | "Mana" ) , ")" ;
 
-exile_cost = "Exile(" ,
+exile_cost = "ExileCost" , "(" ,
            ( "Creature" | "Permanent" | "Mana" | "HandCard" ) , ")" ;
 
-discard_cost = "Discard" , positive_int ;
+discard_cost = "DiscardCost" , positive_int ;
 
 life_cost = "PayLife", positive_int ;
