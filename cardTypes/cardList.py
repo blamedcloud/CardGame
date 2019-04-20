@@ -4,8 +4,12 @@ from cardTypes.card import Card
 
 class CardList(object):
 
-	def __init__(self):
+	def __init__(self, startingCards = None):
 		self.cards = []
+		if isinstance(startingCards, CardList):
+			self.cards = startingCards.cards
+		else:
+			self.extend(startingCards)
 
 
 
@@ -75,7 +79,7 @@ class CardList(object):
 			return self.cards.pop(index)
 
 	def remove(self, item):
-		self.cards.remove(item)		
+		self.cards.remove(item)
 
 	def reverse(self):
 		self.cards.reverse()
@@ -87,13 +91,13 @@ class CardList(object):
 		if not isinstance(other, CardList):
 			return NotImplemented
 		else:
-			return self.cards + other.cards
+			return CardList(self.cards + other.cards)
 
 	def __radd__(self, other):
 		if not isintance(other, CardList):
 			return NotImplemented
 		else:
-			return self.cards + other.cards
+			return CardList(other.cards + self.cards)
 
 	def __iadd__(self, other):
 		if not isinstance(other, CardList):
@@ -101,9 +105,5 @@ class CardList(object):
 		else:
 			self.cards += other.cards
 			return self
-
-
-	
-
 
 
