@@ -1,0 +1,3 @@
+[submodule "cardCreation/ParserTongue"]
+	path = cardCreation/ParserTongue
+	url = https://github.com/blamedcloud/ParserTongue
